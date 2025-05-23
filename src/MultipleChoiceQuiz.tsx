@@ -22,44 +22,20 @@ const MultipleChoiceQuiz: React.FC<Props> = ({ question, onAnswer }) => {
       <h3 style={{ fontSize: 26, marginBottom: 20 }}>{question.question}</h3>
       <ul style={{ listStyle: 'none', padding: 0, maxWidth: 720, margin: '0 auto' }}>
         {question.options.map((opt, idx) => {
-          let bg = '#f8f8f8';
-          let fontWeight = selected === idx ? 600 : 400;
-          let boxShadow = selected === idx ? '0 2px 8px #bbb' : undefined;
+          let btnClass = 'option-btn';
           if (answered) {
             if (idx === question.answer) {
-              bg = 'lightgreen';
-              fontWeight = 700;
+              btnClass += ' correct';
             } else if (selected === idx && idx !== question.answer) {
-              bg = 'salmon';
-              fontWeight = 700;
+              btnClass += ' incorrect';
             }
           } else if (selected === idx) {
-            bg = '#e0e0e0';
+            btnClass += ' selected';
           }
           return (
-            <li key={idx} style={{ marginBottom: 12 }}>
+            <li key={idx} style={{ marginBottom: 0 }}>
               <button
-                className="multiple-choice-option"
-                style={{
-                  width: 700, // Even wider
-                  minWidth: 700,
-                  maxWidth: 700,
-                  padding: '14px 18px',
-                  wordBreak: 'break-word',
-                  whiteSpace: 'normal',
-                  textAlign: 'left',
-                  fontSize: 18,
-                  borderRadius: 8,
-                  border: '1px solid #bbb',
-                  background: bg,
-                  fontWeight,
-                  boxShadow,
-                  transition: 'background 0.2s, box-shadow 0.2s',
-                  cursor: answered ? 'default' : 'pointer',
-                  outline: 'none',
-                  display: 'block',
-                  margin: '0 auto',
-                }}
+                className={btnClass}
                 onClick={() => handleSelect(idx)}
                 disabled={answered}
               >

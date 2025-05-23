@@ -23,7 +23,7 @@ const innerStyle: React.CSSProperties = {
   position: 'relative',
   transition: 'transform 0.5s',
   transformStyle: 'preserve-3d',
-  boxShadow: '0 2px 8px #aaa',
+  boxShadow: undefined, // Remove inline shadow, use CSS only
   borderRadius: 8,
 };
 
@@ -39,8 +39,6 @@ const sideStyle: React.CSSProperties = {
   fontSize: 22,
   backfaceVisibility: 'hidden',
   borderRadius: 8,
-  background: '#fff',
-  border: '1px solid #ccc',
   overflow: 'auto', // Allow scrolling if content overflows
   padding: 24, // Add padding for better readability
   boxSizing: 'border-box',
@@ -77,7 +75,6 @@ const FlashcardQuiz: React.FC<Props> = ({ question, onResult }) => {
   return (
     <div style={{ margin: '2em 0', textAlign: 'center' }}>
       <div
-        className="flashcard-quiz-card"
         style={cardStyle}
         onClick={handleFlip}
         title="Click to flip"
@@ -89,7 +86,7 @@ const FlashcardQuiz: React.FC<Props> = ({ question, onResult }) => {
           }}
         >
           {/* Front Side */}
-          <div style={sideStyle}>
+          <div className="flashcard-side" style={sideStyle}>
             {question.frontIsImage ? (
               <img src={question.front} alt="Flashcard front" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', width: '100%', height: '100%', display: 'block', margin: '0 auto' }} />
             ) : (
@@ -97,7 +94,7 @@ const FlashcardQuiz: React.FC<Props> = ({ question, onResult }) => {
             )}
           </div>
           {/* Back Side */}
-          <div style={backStyle}>
+          <div className="flashcard-side" style={backStyle}>
             {question.backIsImage ? (
               <img src={question.back} alt="Flashcard answer" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', width: '100%', height: '100%', display: 'block', margin: '0 auto' }} />
             ) : (
@@ -115,9 +112,9 @@ const FlashcardQuiz: React.FC<Props> = ({ question, onResult }) => {
           <button
             onClick={() => handleResult(true)}
             disabled={answered !== null}
+            className={answered === true ? 'flashcard-btn knew on' : 'flashcard-btn knew'}
             style={{
               marginRight: 12,
-              background: answered === true ? '#c8e6c9' : undefined,
               fontWeight: answered === true ? 700 : undefined,
             }}
           >
@@ -126,8 +123,8 @@ const FlashcardQuiz: React.FC<Props> = ({ question, onResult }) => {
           <button
             onClick={() => handleResult(false)}
             disabled={answered !== null}
+            className={answered === false ? 'flashcard-btn didnt on' : 'flashcard-btn didnt'}
             style={{
-              background: answered === false ? '#ffcdd2' : undefined,
               fontWeight: answered === false ? 700 : undefined,
             }}
           >

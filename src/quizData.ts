@@ -26,22 +26,22 @@ export interface Subject {
 }
 
 export const subjects: Subject[] = [
-//   {
-//     name: 'Math',
-//     questions: [
-//       {
-//         type: 'multiple-choice',
-//         question: 'What is 2 + 2?',
-//         options: ['3', '4', '5', '6'],
-//         answer: 1,
-//       },
-//       {
-//         type: 'flashcard',
-//         front: 'What is the Pythagorean theorem?',
-//         back: 'a² + b² = c²',
-//       },
-//     ],
-//   },
+  {
+    name: 'Math',
+    questions: [
+      {
+        type: 'multiple-choice',
+        question: 'What is 2 + 2?',
+        options: ['3', '4', '5', '6'],
+        answer: 1,
+      },
+      {
+        type: 'flashcard',
+        front: 'What is the Pythagorean theorem?',
+        back: 'a² + b² = c²',
+      },
+    ],
+  },
 //   {
 //     name: 'Geography',
 //     questions: [

@@ -5,82 +5,6 @@
   text-align: center;
 }
 
-/* Responsive root padding */
-@media (max-width: 600px) {
-  #root {
-    padding: 0.5rem;
-  }
-}
-
-/* Responsive card and menu grid */
-@media (max-width: 900px) {
-  .App nav > div {
-    flex-direction: column !important;
-    gap: 16px !important;
-  }
-}
-
-/* Remove mobile-specific card shrinking for quiz menu cards */
-/*
-@media (max-width: 600px) {
-  .App nav > div > div {
-    min-width: 90vw !important;
-    max-width: 98vw !important;
-    padding: 12px 6px 10px 6px !important;
-    font-size: 1em !important;
-    margin-bottom: 8px !important;
-    box-shadow: 0 1px 6px #e0e0e0 !important;
-  }
-  .App nav > div > div > div:first-child {
-    font-size: 1.2em !important;
-    margin-bottom: 6px !important;
-  }
-  .App nav > div > div > div:last-child {
-    font-size: 0.98em !important;
-    margin-bottom: 0 !important;
-  }
-}
-*/
-
-/* Responsive quiz progress and results */
-@media (max-width: 600px) {
-  .App > div > div {
-    flex-direction: column !important;
-    gap: 10px !important;
-  }
-  .App h1 {
-    font-size: 2em !important;
-  }
-}
-
-/* Responsive results box */
-@media (max-width: 600px) {
-  .App > div[style*='flex-direction: column'] > div {
-    min-width: 90vw !important;
-    max-width: 98vw !important;
-    padding: 18px 8px !important;
-  }
-}
-
-/* Responsive flashcard and quiz buttons */
-@media (max-width: 700px) {
-  .flashcard-quiz-card {
-    width: 95vw !important;
-    height: 48vw !important;
-    min-width: 0 !important;
-    min-height: 0 !important;
-    max-width: 98vw !important;
-    max-height: 60vw !important;
-  }
-  .multiple-choice-option {
-    width: 95vw !important;
-    min-width: 0 !important;
-    max-width: 98vw !important;
-    font-size: 1em !important;
-    padding: 10px 8px !important;
-  }
-}
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -117,9 +41,316 @@
   color: #888;
 }
 
-.App nav > div > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+/* QuizApp dark mode quiz info bar styles */
+@media (prefers-color-scheme: dark) {
+  .quiz-info-bar {
+    background: #23272f;
+    color: #e0e6f0;
+    box-shadow: 0 1px 6px #111a2a;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-weight: 600;
+    font-size: 18px;
+    min-width: 120px;
+    text-align: center;
+    border: 1.5px solid #2e3748;
+    margin: 0 4px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .quiz-info-bar.score {
+    background: #23272f;
+    color: #b2e3b2;
+    border-color: #2e3748;
+  }
+  .quiz-info-bar.progress {
+    background: #23272f;
+    color: #b2c7e3;
+    border-color: #2e3748;
+  }
+  .quiz-info-bar.auto-advance-btn {
+    background: #1e2e1e;
+    color: #b2e3b2;
+    border: 1.5px solid #2e4832;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  .quiz-info-bar.auto-advance-btn.on {
+    background: #234d23;
+    color: #b2e3b2;
+    border-color: #3fa43f;
+  }
+  .quiz-info-bar.auto-advance-btn.off {
+    background: #4d2323;
+    color: #e3b2b2;
+    border-color: #a43f3f;
+  }
+  .flashcard-side {
+    background: #23272f;
+    color: #e0e6f0;
+    border: 1.5px solid #2e3748;
+    box-shadow: 0 2px 8px #111a2a !important;
+    transition: background 0.2s, color 0.2s;
+  }
+  /* Ensure parent containers of flashcard have no white shadow in dark mode */
+  .flashcard-parent, .flashcard-parent * {
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+  .flashcard-side {
+    box-shadow: 0 2px 8px #111a2a !important;
+  }
+  /* Remove box-shadow from all direct parents of .flashcard-side in dark mode */
+  .flashcard-side, .flashcard-side * {
+    box-shadow: none !important;
+  }
+  .flashcard-side {
+    box-shadow: 0 2px 8px #111a2a !important;
+  }
+  /* Remove box-shadow from the main flashcard container if it exists */
+  .flashcard-main, .flashcard-main * {
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+}
+
+/* QuizApp info bar styles for light mode */
+@media (prefers-color-scheme: light) {
+  .quiz-info-bar {
+    background: #f0f0f0;
+    color: #222;
+    box-shadow: 0 1px 4px #ddd;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-weight: 600;
+    font-size: 18px;
+    min-width: 120px;
+    text-align: center;
+    border: 1.5px solid #e0e0e0;
+    margin: 0 4px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .quiz-info-bar.score {
+    background: #f0f0f0;
+    color: #388e3c;
+    border-color: #c8e6c9;
+  }
+  .quiz-info-bar.progress {
+    background: #f0f0f0;
+    color: #1976d2;
+    border-color: #bbdefb;
+  }
+  .quiz-info-bar.auto-advance-btn {
+    background: #e8f5e9;
+    color: #388e3c;
+    border: 1.5px solid #c8e6c9;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  .quiz-info-bar.auto-advance-btn.on {
+    background: #c8e6c9;
+    color: #388e3c;
+    border-color: #388e3c;
+  }
+  .quiz-info-bar.auto-advance-btn.off {
+    background: #ffcdd2;
+    color: #d32f2f;
+    border-color: #d32f2f;
+  }
+  .flashcard-side {
+    background: #fff;
+    color: #222;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px #aaa;
+    transition: background 0.2s, color 0.2s;
+  }
+  .flashcard-btn.knew.on {
+    background: #c8e6c9 !important;
+    color: #388e3c !important;
+    border: 1.5px solid #388e3c;
+  }
+  .flashcard-btn.didnt.on {
+    background: #ffcdd2 !important;
+    color: #d32f2f !important;
+    border: 1.5px solid #d32f2f;
+  }
+}
+
+.menu-card {
+  cursor: pointer;
+  min-width: 220px;
+  max-width: 260px;
+  flex: 1 1 220px;
+  padding: 32px 24px 24px 24px;
+  margin: 0;
+  border-radius: 18px;
+  text-align: center;
+  position: relative;
+  user-select: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+}
+.menu-card .menu-card-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1976d2;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+.menu-card .menu-card-questions {
+  color: #555;
+  margin-bottom: 8px;
+}
+@media (prefers-color-scheme: light) {
+  .menu-card {
+    background: #f8fafd;
+    box-shadow: 0 2px 8px #e0e0e0;
+    border: 2px solid #e0e0e0;
+    color: #222;
+  }
+  .menu-card.selected {
+    border: 2px solid #1976d2;
+    box-shadow: 0 4px 18px #b3e5fc;
+  }
+  .menu-card:hover, .menu-card:focus {
+    background: #e3f2fd;
+    box-shadow: 0 6px 24px #90caf9;
+    border: 2px solid #1976d2;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .menu-card {
+    background: #23272f;
+    box-shadow: 0 4px 18px #111a2a;
+    border: 2px solid #2e3748;
+    color: #e0e6f0;
+  }
+  .menu-card.selected {
+    border: 2px solid #1976d2;
+    box-shadow: 0 4px 18px #19776d2;
+  }
+  .menu-card:hover, .menu-card:focus {
+    background: #1a1d23;
+    box-shadow: 0 6px 24px #19776d2;
+    border: 2px solid #19776d2;
+  }
+  .menu-card .menu-card-title {
+    color: #90caf9;
+  }
+  .menu-card .menu-card-questions {
+    color: #b2c7e3;
+  }
+}
+
+.option-btn {
+  width: 700px;
+  min-width: 700px;
+  max-width: 700px;
+  padding: 14px 18px;
+  word-break: break-word;
+  white-space: normal;
+  text-align: left;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  font-weight: 400;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  cursor: pointer;
+  outline: none;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 12px;
+}
+@media (prefers-color-scheme: light) {
+  .option-btn {
+    background: #f8f8f8;
+    color: #222;
+    box-shadow: none;
+  }
+  .option-btn.selected {
+    background: #e0e0e0;
+    font-weight: 600;
+    box-shadow: 0 2px 8px #bbb;
+  }
+  .option-btn.correct {
+    background: #c8e6c9;
+    color: #388e3c;
+    font-weight: 700;
+  }
+  .option-btn.incorrect {
+    background: #ffcdd2;
+    color: #d32f2f;
+    font-weight: 700;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .option-btn {
+    background: #23272f;
+    color: #e0e6f0;
+    box-shadow: 0 1px 4px #111a2a;
+    border: 1px solid #2e3748;
+  }
+  .option-btn.selected {
+    background: #2e3748;
+    font-weight: 600;
+    box-shadow: 0 2px 8px #222b3a;
+  }
+  .option-btn.correct {
+    background: #234d23;
+    color: #b2e3b2;
+    font-weight: 700;
+  }
+  .option-btn.incorrect {
+    background: #4d2323;
+    color: #e3b2b2;
+    font-weight: 700;
+  }
+}
+
+.results-card {
+  border-radius: 24px;
+  padding: 36px 48px;
+  min-width: 340px;
+  text-align: center;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #c8e6c9;
+  box-shadow: 0 2px 12px #ddd;
+  background: #f0f0f0;
+  color: #222;
+  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+}
+@media (prefers-color-scheme: dark) {
+  .results-card {
+    background: #23272f;
+    color: #e0e6f0;
+    border: 2px solid #3fa43f;
+    box-shadow: 0 2px 12px #111a2a;
+  }
+}
+
+.back-to-menu-btn {
+  margin-top: 12px;
+  padding: 12px 32px;
+  border-radius: 20px;
+  background: #1976d2;
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 1px 4px #222; /* dark shadow for both modes */
+  transition: background 0.2s;
+}
+.back-to-menu-btn:hover, .back-to-menu-btn:focus {
+  background: #145ea8;
+}
+@media (prefers-color-scheme: dark) {
+  .back-to-menu-btn {
+    /* keep same style as light mode, but shadow stays dark */
+    box-shadow: 0 1px 4px #111a2a;
+  }
 }
