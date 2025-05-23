@@ -133,7 +133,7 @@ export const subjects: Subject[] = [
     questions: nummod1Questions.map((q, i) => ({
       type: 'flashcard' as const,
       front: q,
-      back: `/src/assets/nummod1vizsga/${i + 1}.png`,
+      back: `${import.meta.env.BASE_URL}nummod1vizsga/${i + 1}.png`,
       frontIsImage: false,
       backIsImage: true,
     })),
