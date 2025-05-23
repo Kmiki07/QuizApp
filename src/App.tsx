@@ -200,10 +200,10 @@ function App() {
           }}>
             <h2 style={{ fontSize: 32, margin: '0 0 18px 0', color: '#388e3c', letterSpacing: 1 }}>Quiz Results</h2>
             <div style={{ fontSize: 22, margin: '18px 0', fontWeight: 600 }}>
-              You got <span style={{ color: '#388e3c' }}>{correctCount}</span> out of <span style={{ color: '#1976d2' }}>{totalCount}</span> correct
+              You got <span style={{ color: '#388e3c', fontWeight: 700 }}>{correctCount}</span> out of <span style={{ color: '#1976d2', fontWeight: 700 }}>{totalCount}</span> correct
             </div>
-            <div style={{ fontSize: 20, margin: '12px 0 24px 0', color: percent >= 70 ? '#388e3c' : percent >= 40 ? '#fbc02d' : '#d32f2f', fontWeight: 700 }}>
-              {percent}%
+            <div style={{ fontSize: 32, margin: '12px 0 24px 0', color: percent >= 70 ? '#1976d2' : percent >= 40 ? '#1976d2' : '#d32f2f', fontWeight: 700 }}>
+              <span style={{ fontWeight: 900 }}>{percent}%</span>
             </div>
             <button
               onClick={handleBackToMenu}
