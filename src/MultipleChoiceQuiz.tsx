@@ -39,6 +39,7 @@ const MultipleChoiceQuiz: React.FC<Props> = ({ question, onAnswer }) => {
           return (
             <li key={idx} style={{ marginBottom: 12 }}>
               <button
+                className="multiple-choice-option"
                 style={{
                   width: 700, // Even wider
                   minWidth: 700,

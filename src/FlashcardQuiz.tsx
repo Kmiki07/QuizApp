@@ -77,6 +77,7 @@ const FlashcardQuiz: React.FC<Props> = ({ question, onResult }) => {
   return (
     <div style={{ margin: '2em 0', textAlign: 'center' }}>
       <div
+        className="flashcard-quiz-card"
         style={cardStyle}
         onClick={handleFlip}
         title="Click to flip"

@@ -5,6 +5,82 @@
   text-align: center;
 }
 
+/* Responsive root padding */
+@media (max-width: 600px) {
+  #root {
+    padding: 0.5rem;
+  }
+}
+
+/* Responsive card and menu grid */
+@media (max-width: 900px) {
+  .App nav > div {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+}
+
+/* Remove mobile-specific card shrinking for quiz menu cards */
+/*
+@media (max-width: 600px) {
+  .App nav > div > div {
+    min-width: 90vw !important;
+    max-width: 98vw !important;
+    padding: 12px 6px 10px 6px !important;
+    font-size: 1em !important;
+    margin-bottom: 8px !important;
+    box-shadow: 0 1px 6px #e0e0e0 !important;
+  }
+  .App nav > div > div > div:first-child {
+    font-size: 1.2em !important;
+    margin-bottom: 6px !important;
+  }
+  .App nav > div > div > div:last-child {
+    font-size: 0.98em !important;
+    margin-bottom: 0 !important;
+  }
+}
+*/
+
+/* Responsive quiz progress and results */
+@media (max-width: 600px) {
+  .App > div > div {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .App h1 {
+    font-size: 2em !important;
+  }
+}
+
+/* Responsive results box */
+@media (max-width: 600px) {
+  .App > div[style*='flex-direction: column'] > div {
+    min-width: 90vw !important;
+    max-width: 98vw !important;
+    padding: 18px 8px !important;
+  }
+}
+
+/* Responsive flashcard and quiz buttons */
+@media (max-width: 700px) {
+  .flashcard-quiz-card {
+    width: 95vw !important;
+    height: 48vw !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-width: 98vw !important;
+    max-height: 60vw !important;
+  }
+  .multiple-choice-option {
+    width: 95vw !important;
+    min-width: 0 !important;
+    max-width: 98vw !important;
+    font-size: 1em !important;
+    padding: 10px 8px !important;
+  }
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -39,4 +115,11 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.App nav > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
