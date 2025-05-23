@@ -56,6 +56,13 @@ const FlashcardQuiz: React.FC<Props> = ({ question, onResult }) => {
   const [answered, setAnswered] = React.useState<null | boolean>(null);
   const [hasFlipped, setHasFlipped] = React.useState(false);
 
+  // Reset state when question changes
+  React.useEffect(() => {
+    setFlipped(false);
+    setAnswered(null);
+    setHasFlipped(false);
+  }, [question]);
+
   const handleFlip = () => {
     if (!flipped) setHasFlipped(true);
     setFlipped((f) => !f);
@@ -82,15 +89,19 @@ const FlashcardQuiz: React.FC<Props> = ({ question, onResult }) => {
         >
           {/* Front Side */}
           <div style={sideStyle}>
-            {question.isImage ? (
-              <img src={question.front} alt="Flashcard front" style={{ maxWidth: 400, maxHeight: 240 }} />
+            {question.frontIsImage ? (
+              <img src={question.front} alt="Flashcard front" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', width: '100%', height: '100%', display: 'block', margin: '0 auto' }} />
             ) : (
               <span>{question.front}</span>
             )}
           </div>
           {/* Back Side */}
           <div style={backStyle}>
-            <span>{question.back}</span>
+            {question.backIsImage ? (
+              <img src={question.back} alt="Flashcard answer" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', width: '100%', height: '100%', display: 'block', margin: '0 auto' }} />
+            ) : (
+              <span>{question.back}</span>
+            )}
           </div>
         </div>
       </div>

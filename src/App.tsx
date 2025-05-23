@@ -11,12 +11,12 @@ function App() {
   const [autoAdvance, setAutoAdvance] = useState(true)
   const [results, setResults] = useState<number[]>([])
   const [showResults, setShowResults] = useState(false)
-  const subject = selectedSubject !== null ? subjects[selectedSubject] : null
-  const quiz = subject ? subject.quizzes[currentQuizIdx] : null
+  const subject = selectedSubject !== null ? subjects[selectedSubject] : null;
+  const quiz = subject ? subject.questions[currentQuizIdx] : null
 
   const handleNext = () => {
     if (!subject) return
-    if (currentQuizIdx + 1 < subject.quizzes.length) {
+    if (currentQuizIdx + 1 < subject.questions.length) {
       setCurrentQuizIdx((idx) => idx + 1)
     } else {
       setShowResults(true)
@@ -51,7 +51,7 @@ function App() {
   }
 
   let correctCount = results.reduce((a, b) => a + b, 0)
-  let totalCount = subject ? subject.quizzes.length : 0
+  let totalCount = subject ? subject.questions.length : 0
   let percent = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0
 
   return (
@@ -108,7 +108,7 @@ function App() {
               >
                 <div style={{ fontSize: 24, fontWeight: 700, color: '#1976d2', marginBottom: 10, letterSpacing: 0.5 }}>{s.name}</div>
                 <div style={{ fontSize: 16, color: '#555', marginBottom: 8 }}>
-                  {s.quizzes.length} question{(s.quizzes.length !== 1) ? 's' : ''}
+                  {s.questions.length} question{(s.questions.length !== 1) ? 's' : ''}
                 </div>
               </div>
             ))}
@@ -134,7 +134,7 @@ function App() {
               minWidth: 120,
               textAlign: 'center',
             }}>
-              {`Question ${currentQuizIdx + 1} / ${subject.quizzes.length}`}
+              {`Question ${currentQuizIdx + 1} / ${subject.questions.length}`}
             </div>
             {/* Score */}
             <div style={{
