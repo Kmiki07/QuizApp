@@ -178,7 +178,11 @@ function App() {
           {/* Move navigation buttons back below everything in the quiz view */}
           <div style={{ marginTop: 24 }}>
             <button onClick={handleBackToMenu}>Back to Menu</button>
-            <button onClick={handleNext} style={{ marginLeft: 12 }}>Next</button>
+            {/* Show Next button only if answered, and autoAdvance is off */}
+            {((quiz && quiz.type === 'multiple-choice' && results[currentQuizIdx] !== undefined && !autoAdvance) ||
+              (quiz && quiz.type === 'flashcard' && results[currentQuizIdx] !== undefined && !autoAdvance)) && (
+              <button onClick={handleNext} style={{ marginLeft: 12 }}>Next</button>
+            )}
           </div>
         </div>
       ) : showResults && subject ? (
