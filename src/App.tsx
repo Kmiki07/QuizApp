@@ -65,16 +65,54 @@ function App() {
       </h1>
       {!inQuiz ? (
         <nav style={{ marginBottom: 24 }}>
-          <span style={{ fontWeight: 600 }}>Subjects: </span>
-          {subjects.map((s, idx) => (
-            <button
-              key={s.name}
-              style={{ margin: 4, fontWeight: selectedSubject === idx ? 700 : 400 }}
-              onClick={() => handleStartQuiz(idx)}
-            >
-              {s.name}
-            </button>
-          ))}
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 28,
+            justifyContent: 'center',
+            marginTop: 32,
+          }}>
+            {subjects.map((s, idx) => (
+              <div
+                key={s.name}
+                onClick={() => handleStartQuiz(idx)}
+                style={{
+                  cursor: 'pointer',
+                  minWidth: 220,
+                  maxWidth: 260,
+                  flex: '1 1 220px',
+                  background: '#f8fafd',
+                  borderRadius: 18,
+                  boxShadow: selectedSubject === idx ? '0 4px 18px #b3e5fc' : '0 2px 8px #e0e0e0',
+                  border: selectedSubject === idx ? '2px solid #1976d2' : '2px solid #e0e0e0',
+                  padding: '32px 24px 24px 24px',
+                  margin: 0,
+                  transition: 'box-shadow 0.2s, border 0.2s, background 0.2s',
+                  textAlign: 'center',
+                  position: 'relative',
+                  userSelect: 'none',
+                }}
+                tabIndex={0}
+                onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') handleStartQuiz(idx) }}
+                title={`Start ${s.name} quiz`}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLDivElement).style.background = '#e3f2fd';
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = '0 6px 24px #90caf9';
+                  (e.currentTarget as HTMLDivElement).style.border = '2px solid #1976d2';
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLDivElement).style.background = '#f8fafd';
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = selectedSubject === idx ? '0 4px 18px #b3e5fc' : '0 2px 8px #e0e0e0';
+                  (e.currentTarget as HTMLDivElement).style.border = selectedSubject === idx ? '2px solid #1976d2' : '2px solid #e0e0e0';
+                }}
+              >
+                <div style={{ fontSize: 24, fontWeight: 700, color: '#1976d2', marginBottom: 10, letterSpacing: 0.5 }}>{s.name}</div>
+                <div style={{ fontSize: 16, color: '#555', marginBottom: 8 }}>
+                  {s.quizzes.length} question{(s.quizzes.length !== 1) ? 's' : ''}
+                </div>
+              </div>
+            ))}
+          </div>
         </nav>
       ) : subject && !showResults ? (
         <div>
