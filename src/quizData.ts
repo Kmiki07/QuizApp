@@ -20,12 +20,12 @@ export interface FlashcardQuestion {
 
 export type Question = MultipleChoiceQuestion | FlashcardQuestion;
 
-export interface Subject {
+export interface Quiz {
   name: string;
   questions: Question[];
 }
 
-export const subjects: Subject[] = [
+export const quizzes: Quiz[] = [
   {
     name: 'Math',
     questions: [

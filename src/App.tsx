@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { subjects } from './quizData'
+import { quizzes } from './quizData'
 import MultipleChoiceQuiz from './MultipleChoiceQuiz'
 import FlashcardQuiz from './FlashcardQuiz'
 
@@ -14,7 +14,7 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 function App() {
-  const [selectedSubject, setSelectedSubject] = useState<number | null>(null)
+  const [selectedQuiz, setSelectedQuiz] = useState<number | null>(null)
   const [currentQuizIdx, setCurrentQuizIdx] = useState(0)
   const [inQuiz, setInQuiz] = useState(false)
   const [autoAdvance, setAutoAdvance] = useState(true)
@@ -22,12 +22,12 @@ function App() {
   const [showResults, setShowResults] = useState(false)
   const [shuffle, setShuffle] = useState(false)
   const [shuffledQuestions, setShuffledQuestions] = useState<any[]>([])
-  const subject = selectedSubject !== null ? subjects[selectedSubject] : null;
-  const quiz = subject ? (shuffle ? shuffledQuestions[currentQuizIdx] : subject.questions[currentQuizIdx]) : null
+  const quizObj = selectedQuiz !== null ? quizzes[selectedQuiz] : null;
+  const quiz = quizObj ? (shuffle ? shuffledQuestions[currentQuizIdx] : quizObj.questions[currentQuizIdx]) : null
 
   const handleNext = () => {
-    if (!subject) return
-    if (currentQuizIdx + 1 < subject.questions.length) {
+    if (!quizObj) return
+    if (currentQuizIdx + 1 < quizObj.questions.length) {
       setCurrentQuizIdx((idx) => idx + 1)
     } else {
       setShowResults(true)
@@ -46,13 +46,13 @@ function App() {
   }
 
   const handleStartQuiz = (idx: number) => {
-    setSelectedSubject(idx)
+    setSelectedQuiz(idx)
     setCurrentQuizIdx(0)
     setInQuiz(true)
     setResults([])
     setShowResults(false)
     if (shuffle) {
-      setShuffledQuestions(shuffleArray(subjects[idx].questions))
+      setShuffledQuestions(shuffleArray(quizzes[idx].questions))
     } else {
       setShuffledQuestions([])
     }
@@ -60,14 +60,14 @@ function App() {
 
   const handleBackToMenu = () => {
     setInQuiz(false)
-    setSelectedSubject(null)
+    setSelectedQuiz(null)
     setCurrentQuizIdx(0)
     setResults([])
     setShowResults(false)
   }
 
   let correctCount = results.reduce((a, b) => a + b, 0)
-  let totalCount = subject ? subject.questions.length : 0
+  let totalCount = quizObj ? quizObj.questions.length : 0
   let percent = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0
 
   return (
@@ -101,24 +101,24 @@ function App() {
                 Shuffle questions
               </label>
             </div>
-            {subjects.map((s, idx) => (
+            {quizzes.map((q, idx) => (
               <div
-                key={s.name}
-                className={`menu-card${selectedSubject === idx ? ' selected' : ''}`}
+                key={q.name}
+                className={`menu-card${selectedQuiz === idx ? ' selected' : ''}`}
                 onClick={() => handleStartQuiz(idx)}
                 tabIndex={0}
                 onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') handleStartQuiz(idx) }}
-                title={`Start ${s.name} quiz`}
+                title={`Start ${q.name} quiz`}
               >
-                <div className="menu-card-title">{s.name}</div>
+                <div className="menu-card-title">{q.name}</div>
                 <div className="menu-card-questions">
-                  {s.questions.length} question{(s.questions.length !== 1) ? 's' : ''}
+                  {q.questions.length} question{(q.questions.length !== 1) ? 's' : ''}
                 </div>
               </div>
             ))}
           </div>
         </nav>
-      ) : subject && !showResults ? (
+      ) : quizObj && !showResults ? (
         <div>
           <div style={{
             marginBottom: 24,
@@ -129,7 +129,7 @@ function App() {
           }}>
             {/* Progress */}
             <div className={`quiz-info-bar progress`}>
-              {`Question ${currentQuizIdx + 1} / ${subject.questions.length}`}
+              {`Question ${currentQuizIdx + 1} / ${quizObj.questions.length}`}
             </div>
             {/* Score */}
             <div className={`quiz-info-bar score`}>
@@ -160,7 +160,7 @@ function App() {
             )}
           </div>
         </div>
-      ) : showResults && subject ? (
+      ) : showResults && quizObj ? (
         <div style={{ marginTop: 48, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <div className="results-card">
             <h2 style={{ fontSize: 32, margin: '0 0 18px 0', color: '#388e3c', letterSpacing: 1 }}>Quiz Results</h2>
