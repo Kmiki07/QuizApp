@@ -4,6 +4,15 @@ import { subjects } from './quizData'
 import MultipleChoiceQuiz from './MultipleChoiceQuiz'
 import FlashcardQuiz from './FlashcardQuiz'
 
+function shuffleArray<T>(array: T[]): T[] {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 function App() {
   const [selectedSubject, setSelectedSubject] = useState<number | null>(null)
   const [currentQuizIdx, setCurrentQuizIdx] = useState(0)
@@ -11,8 +20,10 @@ function App() {
   const [autoAdvance, setAutoAdvance] = useState(true)
   const [results, setResults] = useState<number[]>([])
   const [showResults, setShowResults] = useState(false)
+  const [shuffle, setShuffle] = useState(false)
+  const [shuffledQuestions, setShuffledQuestions] = useState<any[]>([])
   const subject = selectedSubject !== null ? subjects[selectedSubject] : null;
-  const quiz = subject ? subject.questions[currentQuizIdx] : null
+  const quiz = subject ? (shuffle ? shuffledQuestions[currentQuizIdx] : subject.questions[currentQuizIdx]) : null
 
   const handleNext = () => {
     if (!subject) return
@@ -40,6 +51,11 @@ function App() {
     setInQuiz(true)
     setResults([])
     setShowResults(false)
+    if (shuffle) {
+      setShuffledQuestions(shuffleArray(subjects[idx].questions))
+    } else {
+      setShuffledQuestions([])
+    }
   }
 
   const handleBackToMenu = () => {
@@ -72,6 +88,19 @@ function App() {
             justifyContent: 'center',
             marginTop: 32,
           }}>
+            {/* Shuffle Switch */}
+            <div className="shuffle-switch">
+              <label className="shuffle-switch-label">
+                <input
+                  type="checkbox"
+                  checked={shuffle}
+                  onChange={e => setShuffle(e.target.checked)}
+                  className="shuffle-switch-checkbox"
+                />
+                <span className="switch-slider" />
+                Shuffle questions
+              </label>
+            </div>
             {subjects.map((s, idx) => (
               <div
                 key={s.name}

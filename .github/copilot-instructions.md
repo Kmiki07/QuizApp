@@ -5,3 +5,5 @@ This project is a React + TypeScript quiz app scaffolded with Vite. The app shou
 When adding styles to element, try to modify the css file mainly, and only reference the styles for the elements.
 
 When adding a new element, that have new styles, add a lightmode and a darkmode variant as well.
+
+DO NOT USE INLINE STYLING
