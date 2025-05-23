@@ -227,12 +227,12 @@
   }
   .menu-card.selected {
     border: 2px solid #1976d2;
-    box-shadow: 0 4px 18px #19776d2;
+    box-shadow: 0 4px 18px #1976d2;
   }
   .menu-card:hover, .menu-card:focus {
     background: #1a1d23;
-    box-shadow: 0 6px 24px #19776d2;
-    border: 2px solid #19776d2;
+    box-shadow: 0 6px 24px #1976d2;
+    border: 2px solid #1976d2;
   }
   .menu-card .menu-card-title {
     color: #90caf9;
