@@ -129,7 +129,7 @@ export const quizzes: Quiz[] = [
 //     ],
 //   },
   {
-    name: 'Nummod 1 Beugró',
+    name: 'Nummod 1 B Beugró',
     questions: nummod1Questions.map((q, i) => ({
       type: 'flashcard' as const,
       front: q,
