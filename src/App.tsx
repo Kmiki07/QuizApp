@@ -71,23 +71,17 @@ function App() {
   let percent = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0
 
   return (
-    <div className="App" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', paddingTop: 12 }}>
+    <div className="App">
       <h1
-        style={{ cursor: 'pointer', userSelect: 'none', marginTop: 0, marginBottom: 18 }}
+        className="app-title"
         onClick={handleBackToMenu}
         title="Go to menu"
       >
         Quiz App
       </h1>
       {!inQuiz ? (
-        <nav style={{ marginBottom: 24 }}>
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: 28,
-            justifyContent: 'center',
-            marginTop: 32,
-          }}>
+        <nav className="menu-nav">
+          <div className="menu-cards">
             {/* Shuffle Switch */}
             <div className="shuffle-switch">
               <label className="shuffle-switch-label">
@@ -161,14 +155,14 @@ function App() {
           </div>
         </div>
       ) : showResults && quizObj ? (
-        <div style={{ marginTop: 48, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div>
           <div className="results-card">
-            <h2 style={{ fontSize: 32, margin: '0 0 18px 0', color: '#388e3c', letterSpacing: 1 }}>Quiz Results</h2>
-            <div style={{ fontSize: 22, margin: '18px 0', fontWeight: 600 }}>
-              You got <span style={{ color: '#388e3c', fontWeight: 700 }}>{correctCount}</span> out of <span style={{ color: '#1976d2', fontWeight: 700 }}>{totalCount}</span> correct
+            <h2 className="results-title">Quiz Results</h2>
+            <div className="results-summary">
+              You got <span className="correct">{correctCount}</span> out of <span className="total">{totalCount}</span> correct
             </div>
-            <div style={{ fontSize: 32, margin: '12px 0 24px 0', color: percent >= 70 ? '#1976d2' : percent >= 40 ? '#1976d2' : '#d32f2f', fontWeight: 700 }}>
-              <span style={{ fontWeight: 900 }}>{percent}%</span>
+            <div className={`results-percent ${percent >= 70 ? 'high' : percent >= 40 ? 'medium' : 'low'}`}>
+              <span className="percent-value">{percent}%</span>
             </div>
             <button
               onClick={handleBackToMenu}

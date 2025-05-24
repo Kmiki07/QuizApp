@@ -411,3 +411,136 @@
     background: #90caf9;
   }
 }
+
+/* App.css */
+
+/* General App container */
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 12px;
+}
+
+/* App Title */
+.app-title {
+  cursor: pointer;
+  user-select: none;
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+/* Menu Navigation */
+.menu-nav {
+  margin-bottom: 24px;
+}
+.menu-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+/* Results Card */
+.results-card {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--results-bg, #fff);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 32px 40px 28px 40px;
+  max-width: 400px;
+}
+
+.results-title {
+  font-size: 32px;
+  margin: 0 0 18px 0;
+  color: #388e3c;
+  letter-spacing: 1px;
+}
+
+.results-summary {
+  font-size: 22px;
+  margin: 18px 0;
+  font-weight: 600;
+}
+.results-summary .correct {
+  color: #388e3c;
+  font-weight: 700;
+}
+.results-summary .total {
+  color: #1976d2;
+  font-weight: 700;
+}
+
+.results-percent {
+  font-size: 32px;
+  margin: 12px 0 24px 0;
+  font-weight: 700;
+}
+.results-percent .percent-value {
+  font-weight: 900;
+}
+.results-percent.high {
+  color: #1976d2;
+}
+.results-percent.medium {
+  color: #1976d2;
+}
+.results-percent.low {
+  color: #d32f2f;
+}
+
+.back-to-menu-btn {
+  margin-top: 8px;
+  padding: 10px 24px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  background: #1976d2;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.back-to-menu-btn:hover {
+  background: #145ea8;
+}
+
+/* Light/Dark mode for results card */
+@media (prefers-color-scheme: dark) {
+  .results-card {
+    background: #23272f;
+    color: #e0e6f0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.32);
+  }
+  .results-title {
+    color: #7ee787;
+  }
+  .results-summary .correct {
+    color: #7ee787;
+  }
+  .results-summary .total {
+    color: #58a6ff;
+  }
+  .results-percent.high,
+  .results-percent.medium {
+    color: #58a6ff;
+  }
+  .results-percent.low {
+    color: #ff7b72;
+  }
+  .back-to-menu-btn {
+    background: #58a6ff;
+    color: #23272f;
+  }
+  .back-to-menu-btn:hover {
+    background: #388bfd;
+  }
+}
+
+/* Quiz Info Bar, Progress, Score, Auto-advance, etc. can be moved similarly if needed */
