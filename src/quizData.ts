@@ -1,5 +1,6 @@
 // Quiz data types and default data for the quiz app
 import { nummod1Questions } from './nummod1Questions';
+import { kriptovizsgaFlashcards } from './kriptovizsgaFlashcards';
 
 export type QuizType = 'multiple-choice' | 'flashcard';
 
@@ -137,5 +138,9 @@ export const quizzes: Quiz[] = [
       frontIsImage: false,
       backIsImage: true,
     })),
+  },
+  {
+    name: 'Kripto Vizsga',
+    questions: kriptovizsgaFlashcards,
   },
 ];

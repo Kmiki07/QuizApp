@@ -1,0 +1,55 @@
+﻿protokoll.png
+szimmetrikus kulcsú titkosítás.png
+digitális aláírás.png
+Kerchkoff-elvek.png
+támadók eszközei.png
+passzív támadások.png
+aktív támadások.png
+eltolásos rejtjel.png
+monoalfabetikus helyettesítés.png
+polialfabetikus eltolás - vigenere.png
+biztonságos titkosítás.png
+titkosítási séma.png
+tökéletes biztonság.png
+one-time pad.png
+tétel a tökéletesen biztonságos titkosítási sémáról.png
+modern kripto 3 alapelve.png
+kolmogorov bonyolultság és algoritmikus véletlenség.png
+probabilisztikus polinom idejű hatékony támadó.png
+elhanyagolható függvéy.png
+számítási biztonság.png
+redukciós bizonyítások.png
+titkosítási séma 2.png
+megkülönböztethetetlenség egyszeres lehallgatás.png
+next-bit teszt.png
+folyamtitkosító.png
+megkülönböztethetetlenség többszörös lehallgatás.png
+megkülönböztethetetlenség cpa.png
+blokktitkosító.png
+feistel hálózat.png
+DES.png
+s-p hálózat.png
+megkülönböztethetetlenség cca.png
+hash függvény és hozzá tartozó definíciók.png
+születésnap támadás.png
+MAC.png
+MAC biztonság.png
+rögzített hosszú MAC.png
+CBC-MAC.png
+encrypt then mac ETM.png
+encrypt and mac E&M.png
+mac then encrypt MTE.png
+nyílvános kulcsú titkosítási séma.png
+hibrid titkosítás.png
+textbook RSA.png
+randomizált RSA.png
+csoport.png
+DLOG feladat.png
+Diffie-Hellman kulcscsere.png
+Diffie-Hellman CDH DDH.png
+elgamal titkosítás.png
+elgamal aláírás.png
+hashed RSA aláírás.png
+textbook RSA aláírás.png
+aláírás séma biztonsága.png
+digitális aláírás vs mac.png
