@@ -1,6 +1,4 @@
 ﻿protokoll.png
-szimmetrikus kulcsú titkosítás.png
-digitális aláírás.png
 Kerchkoff-elvek.png
 támadók eszközei.png
 passzív támadások.png
@@ -39,6 +37,7 @@ CBC-MAC.png
 encrypt then mac ETM.png
 encrypt and mac E&M.png
 mac then encrypt MTE.png
+szimmetrikus kulcsú titkosítás.png
 nyílvános kulcsú titkosítási séma.png
 hibrid titkosítás.png
 textbook RSA.png
@@ -48,6 +47,7 @@ DLOG feladat.png
 Diffie-Hellman kulcscsere.png
 Diffie-Hellman CDH DDH.png
 elgamal titkosítás.png
+digitális aláírás.png
 elgamal aláírás.png
 hashed RSA aláírás.png
 textbook RSA aláírás.png

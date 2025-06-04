@@ -1,8 +1,6 @@
 // This file is auto-generated. Each flashcard has a text front (from the filename) and an image back.
 export const kriptovizsgaFlashcards = [
   { type: 'flashcard' as const, front: "Protokoll", back: `${import.meta.env.BASE_URL}kriptovizsga/protokoll.png`, frontIsImage: false, backIsImage: true },
-  { type: 'flashcard' as const, front: "Szimmetrikus kulcsú titkosítás", back: `${import.meta.env.BASE_URL}kriptovizsga/szimmetrikus kulcsú titkosítás.png`, frontIsImage: false, backIsImage: true },
-  { type: 'flashcard' as const, front: "Digitális aláírás", back: `${import.meta.env.BASE_URL}kriptovizsga/digitális aláírás.png`, frontIsImage: false, backIsImage: true },
   { type: 'flashcard' as const, front: "Kerchkoff-elvek", back: `${import.meta.env.BASE_URL}kriptovizsga/Kerchkoff-elvek.png`, frontIsImage: false, backIsImage: true },
   { type: 'flashcard' as const, front: "Támadók eszközei", back: `${import.meta.env.BASE_URL}kriptovizsga/támadók eszközei.png`, frontIsImage: false, backIsImage: true },
   { type: 'flashcard' as const, front: "Passzív támadások", back: `${import.meta.env.BASE_URL}kriptovizsga/passzív támadások.png`, frontIsImage: false, backIsImage: true },
@@ -41,6 +39,7 @@ export const kriptovizsgaFlashcards = [
   { type: 'flashcard' as const, front: "Encrypt then mac ETM", back: `${import.meta.env.BASE_URL}kriptovizsga/encrypt then mac ETM.png`, frontIsImage: false, backIsImage: true },
   { type: 'flashcard' as const, front: "Encrypt and mac E&M", back: `${import.meta.env.BASE_URL}kriptovizsga/encrypt and mac E&M.png`, frontIsImage: false, backIsImage: true },
   { type: 'flashcard' as const, front: "Mac then encrypt MTE", back: `${import.meta.env.BASE_URL}kriptovizsga/mac then encrypt MTE.png`, frontIsImage: false, backIsImage: true },
+  { type: 'flashcard' as const, front: "Szimmetrikus kulcsú titkosítás", back: `${import.meta.env.BASE_URL}kriptovizsga/szimmetrikus kulcsú titkosítás.png`, frontIsImage: false, backIsImage: true },
   { type: 'flashcard' as const, front: "Nyílvános kulcsú titkosítási séma", back: `${import.meta.env.BASE_URL}kriptovizsga/nyílvános kulcsú titkosítási séma.png`, frontIsImage: false, backIsImage: true },
   { type: 'flashcard' as const, front: "Hibrid titkosítás", back: `${import.meta.env.BASE_URL}kriptovizsga/hibrid titkosítás.png`, frontIsImage: false, backIsImage: true },
   { type: 'flashcard' as const, front: "Textbook RSA", back: `${import.meta.env.BASE_URL}kriptovizsga/textbook RSA.png`, frontIsImage: false, backIsImage: true },
@@ -50,6 +49,7 @@ export const kriptovizsgaFlashcards = [
   { type: 'flashcard' as const, front: "Diffie-Hellman kulcscsere", back: `${import.meta.env.BASE_URL}kriptovizsga/Diffie-Hellman kulcscsere.png`, frontIsImage: false, backIsImage: true },
   { type: 'flashcard' as const, front: "Diffie-Hellman CDH DDH", back: `${import.meta.env.BASE_URL}kriptovizsga/Diffie-Hellman CDH DDH.png`, frontIsImage: false, backIsImage: true },
   { type: 'flashcard' as const, front: "Elgamal titkosítás", back: `${import.meta.env.BASE_URL}kriptovizsga/elgamal titkosítás.png`, frontIsImage: false, backIsImage: true },
+  { type: 'flashcard' as const, front: "Digitális aláírás", back: `${import.meta.env.BASE_URL}kriptovizsga/digitális aláírás.png`, frontIsImage: false, backIsImage: true },
   { type: 'flashcard' as const, front: "Elgamal aláírás", back: `${import.meta.env.BASE_URL}kriptovizsga/elgamal aláírás.png`, frontIsImage: false, backIsImage: true },
   { type: 'flashcard' as const, front: "Hashed RSA aláírás", back: `${import.meta.env.BASE_URL}kriptovizsga/hashed RSA aláírás.png`, frontIsImage: false, backIsImage: true },
   { type: 'flashcard' as const, front: "Textbook RSA aláírás", back: `${import.meta.env.BASE_URL}kriptovizsga/textbook RSA aláírás.png`, frontIsImage: false, backIsImage: true },
